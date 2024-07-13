@@ -9,16 +9,6 @@ Claro! Aqui está um exemplo de README para o seu projeto CRUD em GoLang usando 
 
 Este é um projeto CRUD (Create, Read, Update, Delete) para cadastro de usuários desenvolvido em GoLang utilizando o framework Gin e Docker.
 
-## Índice
-
-- [Introdução](#introdução)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Endpoints](#endpoints)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
-
 ## Introdução
 
 Este projeto tem como objetivo criar uma aplicação simples de cadastro de usuários, permitindo a criação, leitura, atualização e exclusão de registros. Ele utiliza o framework Gin para o desenvolvimento do servidor web e Docker para facilitar a configuração do ambiente.
