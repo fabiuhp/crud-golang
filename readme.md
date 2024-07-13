@@ -1,4 +1,4 @@
-# CRUD-GOLANG
+# WIP -> CRUD-GOLANG
 Este é um projeto CRUD (Create, Read, Update, Delete) para cadastro de usuários desenvolvido em GoLang utilizando o framework Gin e Docker.
 
 Claro! Aqui está um exemplo de README para o seu projeto CRUD em GoLang usando o framework Gin e Docker para cadastro de usuários:
