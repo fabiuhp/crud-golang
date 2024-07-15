@@ -7,6 +7,7 @@ import (
 	"github.com/fabiuhp/crud-golang/src/configurations/validations"
 	"github.com/fabiuhp/crud-golang/src/controller/model/req"
 	"github.com/fabiuhp/crud-golang/src/model"
+	"github.com/fabiuhp/crud-golang/src/model/service"
 	"github.com/gin-gonic/gin"
 )
 
@@ -33,7 +34,9 @@ func CreateUser(c *gin.Context) {
 		userReq.Age,
 	)
 
-	if err := domain.CreateUser(); err != nil {
+	service := service.NewUserDomainService()
+
+	if err := service.CreateUser(domain); err != nil {
 		c.JSON(err.Code, err)
 	}
 
