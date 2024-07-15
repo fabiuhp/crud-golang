@@ -1,14 +1,17 @@
 package usecases
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/fabiuhp/crud-golang/src/configurations/logger"
 	"github.com/fabiuhp/crud-golang/src/configurations/validations"
-	"github.com/fabiuhp/crud-golang/src/model/req"
-	"github.com/fabiuhp/crud-golang/src/model/res"
+	"github.com/fabiuhp/crud-golang/src/controller/model/req"
+	"github.com/fabiuhp/crud-golang/src/model"
 	"github.com/gin-gonic/gin"
+)
+
+var (
+	UserDomainInterface model.UserDomainInterface
 )
 
 func CreateUser(c *gin.Context) {
@@ -23,13 +26,17 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
-	fmt.Println(userReq)
-	res := res.UserResponse{
-		ID:    "teste",
-		Email: userReq.Email,
-		Name:  userReq.Name,
-		Age:   userReq.Age,
+	domain := model.NewUserDomain(
+		userReq.Email,
+		userReq.Password,
+		userReq.Name,
+		userReq.Age,
+	)
+
+	if err := domain.CreateUser(); err != nil {
+		c.JSON(err.Code, err)
 	}
+
 	logger.Info("Usuario criado com sucesso")
-	c.JSON(http.StatusOK, res)
+	c.String(http.StatusOK, "")
 }
